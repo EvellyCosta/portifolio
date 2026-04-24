@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evelly Costa | TI & Inovação</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+ 
+<canvas id="particles-canvas"></canvas>
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+ 
+<!-- SPLASH -->
+<div id="splash">
+  <div class="nf-wrapper">
+    <div class="nf-logo">
+      <svg class="nf-svg" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#f5eeff"/>
+            <stop offset="40%"  stop-color="#c4a1ff"/>
+            <stop offset="100%" stop-color="#7f5af0"/>
+          </linearGradient>
+          <filter id="splashGlow">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <line x1="30" y1="18" x2="270" y2="18" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.5"/>
+        <text x="18" y="168" font-family="'Playfair Display', 'Didot', 'Times New Roman', serif" font-size="172" font-weight="700" fill="url(#goldGrad)" filter="url(#splashGlow)" letter-spacing="-4">E</text>
+        <text x="138" y="158" font-family="'Playfair Display', 'Didot', serif" font-size="128" font-weight="400" fill="url(#goldGrad)" filter="url(#splashGlow)">C</text>
+        <line x1="30" y1="185" x2="270" y2="185" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="nf-name">Evelly Costa</div>
+    <div class="nf-sub">TI &amp; Inovação</div>
+  </div>
+  <div class="nf-bar"></div>
+</div>
+ 
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#home">
+    <svg class="logo-svg" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#f5eeff"/>
+          <stop offset="40%"  stop-color="#c4a1ff"/>
+          <stop offset="100%" stop-color="#7f5af0"/>
+        </linearGradient>
+        <filter id="navGlow">
+          <feGaussianBlur stdDeviation="1.8" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <line x1="8" y1="6" x2="112" y2="6" stroke="url(#navGrad)" stroke-width="0.6" opacity="0.5"/>
+      <text x="5" y="66" font-family="'Playfair Display', 'Didot', serif" font-size="68" font-weight="700" fill="url(#navGrad)" filter="url(#navGlow)" letter-spacing="-2">E</text>
+      <text x="54" y="62" font-family="'Playfair Display', 'Didot', serif" font-size="52" font-weight="400" fill="url(#navGrad)" filter="url(#navGlow)">C</text>
+      <line x1="8" y1="74" x2="112" y2="74" stroke="url(#navGrad)" stroke-width="0.6" opacity="0.5"/>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#conquistas">Conquistas</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#qualidades">Qualidades</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button id="theme-btn" onclick="toggleTheme()" title="Alternar tema">
+    <span class="icon-moon">🌙</span>
+    <span class="icon-sun">☀️</span>
+  </button>
+</nav>
+ 
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text reveal">
+      <span class="hero-role">TI &amp; Inovação</span>
+      <h1>Evelly<br><span class="name-accent">Costa</span></h1>
+      <p class="hero-desc">Estudante apaixonada por tecnologia, robótica e resolução de problemas complexos. Sempre em busca do próximo desafio.</p>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn-primary">Entre em Contato</a>
+        <a href="#sobre" class="btn-outline">Sobre Mim</a>
+      </div>
+    </div>
+    <div class="hero-card reveal" style="transition-delay:.2s">
+      <div class="card-bar">
+        <div class="dot r"></div>
+        <div class="dot y"></div>
+        <div class="dot g"></div>
+        <span>evelly@portfolio ~ bash</span>
+      </div>
+      <div class="card-body">
+        <div class="line"><span class="c-grn">evelly</span><span class="c-muted">@portfolio</span><span class="c-pur"> ~/about</span></div>
+        <div class="line c-muted">$ whoami</div>
+        <div class="line c-white">Estudante de TI &amp; Inovação</div>
+        <div class="line"><span class="c-muted">$ skills --list</span></div>
+        <div class="line"><span class="c-grn">✓</span> Robótica &amp; Arduino</div>
+        <div class="line"><span class="c-grn">✓</span> HTML5 · CSS3 · JavaScript</div>
+        <div class="line"><span class="c-grn">✓</span> PostgreSQL · PgAdmin 4</div>
+        <div class="line"><span class="c-muted">$ status</span></div>
+        <div class="line"><span class="c-pur">→</span> Disponível para oportunidades</div>
+        <div class="line c-muted"><span class="cursor-blink"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<hr class="divider"/>
+ 
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-wrap">
+    <p class="section-label">01 — Perfil</p>
+    <h2 class="section-title">Sobre Mim</h2>
+    <div class="sobre-grid">
+      <div class="sobre-text reveal">
+        <p>Sou uma estudante de <strong>Tecnologia da Informação</strong> apaixonada por inovação e pelo poder que a tecnologia tem de transformar realidades.</p>
+        <p>Tenho foco em <strong>resolução de problemas complexos</strong>, desde circuitos de robótica até lógica de programação e modelagem de dados. Cada projeto é uma oportunidade de evoluir.</p>
+      </div>
+      <div class="sobre-stats reveal" style="transition-delay:.15s">
+        <div class="stat-card">
+          <div class="stat-icon">🤖</div>
+          <div>
+            <div class="stat-label">Área Principal</div>
+            <div class="stat-val">Robótica &amp; Hardware</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💻</div>
+          <div>
+            <div class="stat-label">Formação</div>
+            <div class="stat-val">Fábrica de Programadores</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🌍</div>
+          <div>
+            <div class="stat-label">Idioma</div>
+            <div class="stat-val">Inglês A1 — CLM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<hr class="divider"/>
+ 
+<!-- CONQUISTAS -->
+<section id="conquistas">
+  <div class="conquistas-wrapper">
+    <div class="carousel-bg">
+      <div class="carousel-track">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1400&q=80" alt="IA 1"/>
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&q=80" alt="IA 2"/>
+        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1400&q=80" alt="IA 3"/>
+        <img src="https://images.unsplash.com/photo-1686191128892-3b37add4c844?w=1400&q=80" alt="IA 4"/>
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1400&q=80" alt="loop"/>
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&q=80" alt="loop2"/>
+      </div>
+      <div class="carousel-overlay"></div>
+    </div>
+    <div class="section-wrap" style="position:relative;z-index:2;">
+      <p class="section-label" style="color:#b892ff;">02 — Trajetória</p>
+      <h2 class="section-title">Certificações &amp; Conquistas</h2>
+      <div class="conquistas-grid">
+        <div class="conquista-card reveal">
+          <span class="conquista-badge">Ciência</span>
+          <div class="conquista-title">Ceará Científico</div>
+          <div class="conquista-desc">Classificação para a 2ª Fase Estadual, demonstrando capacidade investigativa e rigor científico.</div>
+        </div>
+        <div class="conquista-card reveal" style="transition-delay:.1s">
+          <span class="conquista-badge">Robótica</span>
+          <div class="conquista-title">FEBROTEC</div>
+          <div class="conquista-desc">Participação na Feira Brasileira de Robótica e Tecnologia, na área de robótica educacional.</div>
+        </div>
+        <div class="conquista-card reveal" style="transition-delay:.2s">
+          <span class="conquista-badge">Hardware</span>
+          <div class="conquista-title">Robô Seguidor de Linha</div>
+          <div class="conquista-desc">Projeto completo: montagem, programação e calibração de robô autônomo com sensores.</div>
+        </div>
+        <div class="conquista-card reveal" style="transition-delay:.3s">
+          <span class="conquista-badge">Formação</span>
+          <div class="conquista-title">Fábrica de Programadores</div>
+          <div class="conquista-desc">Formação técnica em programação e desenvolvimento de software.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<hr class="divider"/>
+ 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <p class="section-label">03 — Competências</p>
+    <h2 class="section-title">Hard Skills &amp; Ferramentas</h2>
+    <div class="skills-grid">
+      <div class="skill-block reveal">
+        <div class="skill-icon">🤖</div>
+        <h3>Robótica &amp; Hardware</h3>
+        <ul>
+          <li>Arduino IDE &amp; Programação</li>
+          <li>Sensores e Atuadores</li>
+          <li>Prototipagem no Tinkercad</li>
+          <li>Mecânica &amp; Eletrônica</li>
+        </ul>
+      </div>
+      <div class="skill-block reveal" style="transition-delay:.1s">
+        <div class="skill-icon">⚙️</div>
+        <h3>Programação Web</h3>
+        <ul>
+          <li>Lógica de Programação</li>
+          <li>HTML5 &amp; CSS3</li>
+          <li>JavaScript</li>
+          <li>Front-end &amp; Back-end</li>
+        </ul>
+      </div>
+      <div class="skill-block reveal" style="transition-delay:.2s">
+        <div class="skill-icon">💾</div>
+        <h3>Banco de Dados</h3>
+        <ul>
+          <li>PostgreSQL</li>
+          <li>PgAdmin 4</li>
+          <li>Modelagem de Dados</li>
+        </ul>
+      </div>
+      <div class="skill-block featured reveal" style="transition-delay:.3s">
+        <div class="skill-icon">✨</div>
+        <h3>Diferencial</h3>
+        <ul>
+          <li>Inglês A1 — CLM</li>
+          <li>Assistente de RH (SENAI)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<hr class="divider"/>
+ 
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="section-wrap">
+    <p class="section-label">04 — Portfólio</p>
+    <h2 class="section-title">Meus Projetos</h2>
+    <div class="projetos-grid">
+ 
+      <!-- Card 1: Portfólio Evelly -->
+      <div class="projeto-card reveal">
+        <div class="projeto-preview projeto-preview--evelly">
+          <div class="evelly-rings">
+            <div class="ering er1"></div>
+            <div class="ering er2"></div>
+            <div class="ering er3"></div>
+          </div>
+          <div class="evelly-center">
+            <div class="evelly-sparks">
+              <span class="sp sp1">✦</span>
+              <span class="sp sp2">·</span>
+              <span class="sp sp3">✦</span>
+            </div>
+            <div class="evelly-name-text">Evelly Costa</div>
+            <div class="evelly-tagline">TI &amp; Inovação</div>
+            <div class="evelly-sparks">
+              <span class="sp sp4">·</span>
+              <span class="sp sp5">✦</span>
+              <span class="sp sp6">·</span>
+            </div>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-category">Portfólio Pessoal · Web</span>
+          <h3 class="projeto-title">Site Portfólio</h3>
+          <p class="projeto-desc">Portfólio pessoal desenvolvido do zero com HTML, CSS e JavaScript. Apresenta minha trajetória em TI &amp; Inovação, projetos de robótica, conquistas em competições e habilidades técnicas. Design com partículas interativas, splash animado e modo claro/escuro.</p>
+          <div class="projeto-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>UI/UX</span>
+          </div>
+          <div class="projeto-btns">
+            <a href="#" class="btn-projeto-primary">Ver Site</a>
+            <a href="#" class="btn-projeto-outline">Ver Código</a>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card 2: Intense Elegance -->
+      <div class="projeto-card reveal" style="transition-delay:.1s">
+        <div class="projeto-preview projeto-preview--intense">
+          <div class="intense-bg-orb intense-orb1"></div>
+          <div class="intense-bg-orb intense-orb2"></div>
+          <div class="intense-deco">
+            <div class="intense-ornament">— ✦ —</div>
+            <div class="intense-label">Intense</div>
+            <div class="intense-divider-line"></div>
+            <div class="intense-sub">Elegance</div>
+            <div class="intense-ornament intense-ornament--bottom">Moda &amp; Identidade Visual</div>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-category">Projeto em Equipe · Moda</span>
+          <h3 class="projeto-title">Intense Elegance</h3>
+          <p class="projeto-desc">Site de moda desenvolvido em equipe com foco em identidade visual e presença digital da marca. Projeto colaborativo explorando design e front-end.</p>
+          <div class="projeto-tags">
+            <span>HTML</span><span>CSS</span><span>Moda</span>
+          </div>
+          <div class="projeto-btns">
+            <a href="#" class="btn-projeto-coming">Em Breve</a>
+            <a href="#" class="btn-projeto-outline">Ver Código</a>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card 3: Robô V6 (largura total) -->
+      <div class="projeto-card projeto-card--wide reveal" style="transition-delay:.2s">
+        <div class="projeto-preview projeto-preview--robo">
+          <div class="robo-scene">
+            <!-- Pista -->
+            <div class="robo-track-svg">
+              <svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg" width="340" height="180">
+                <!-- Pista exterior -->
+                <rect x="20" y="20" width="300" height="140" rx="70" fill="none" stroke="#1a2a1a" stroke-width="36"/>
+                <!-- Pista interior branca -->
+                <rect x="20" y="20" width="300" height="140" rx="70" fill="none" stroke="#2cb67d" stroke-width="3" stroke-dasharray="8 6" opacity="0.7"/>
+                <!-- Linha central preta (a que o robô segue) -->
+                <rect x="20" y="20" width="300" height="140" rx="70" fill="none" stroke="#000" stroke-width="6"/>
+              </svg>
+            </div>
+            <!-- Robô V6 -->
+            <div class="robo-car">
+              <div class="robo-chassis">
+                <div class="robo-top-plate">
+                  <div class="robo-label-v6">V6</div>
+                  <div class="robo-led-row">
+                    <div class="robo-led led-r"></div>
+                    <div class="robo-led led-g"></div>
+                    <div class="robo-led led-r2"></div>
+                  </div>
+                </div>
+                <div class="robo-mid-plate">
+                  <div class="robo-arduino">
+                    <div class="ra-pin"></div><div class="ra-pin"></div><div class="ra-pin"></div>
+                    <div class="ra-chip">UNO</div>
+                    <div class="ra-pin"></div><div class="ra-pin"></div><div class="ra-pin"></div>
+                  </div>
+                </div>
+                <div class="robo-sensor-bar">
+                  <div class="robo-sensor s1"></div>
+                  <div class="robo-sensor s2"></div>
+                  <div class="robo-sensor s3"></div>
+                  <div class="robo-sensor s4"></div>
+                  <div class="robo-sensor s5"></div>
+                </div>
+              </div>
+              <div class="robo-wheels-side robo-wheels-left">
+                <div class="robo-wheel-big"></div>
+                <div class="robo-wheel-big"></div>
+              </div>
+              <div class="robo-wheels-side robo-wheels-right">
+                <div class="robo-wheel-big"></div>
+                <div class="robo-wheel-big"></div>
+              </div>
+            </div>
+            <div class="robo-glow"></div>
+            <div class="robo-badge-febrotec">FEBROTEC</div>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-category">Hardware · Robótica · FEBROTEC</span>
+          <h3 class="projeto-title">Robô Seguidor de Linha <span class="v6-badge">V6</span></h3>
+          <p class="projeto-desc">Robô autônomo construído com Arduino e sensores infravermelhos. Realiza leitura do trajeto em tempo real e corrige a direção automaticamente através de lógica de controle calibrada. Sexta versão do projeto, apresentada na Feira Brasileira de Robótica e Tecnologia (FEBROTEC).</p>
+          <div class="projeto-tags">
+            <span>Arduino</span><span>C++</span><span>Sensores IR</span><span>Eletrônica</span><span>FEBROTEC</span>
+          </div>
+          <div class="projeto-btns">
+            <a href="#conquistas" class="btn-projeto-primary">Ver Conquista</a>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<hr class="divider"/>
+ 
+<!-- ... (SEU CÓDIGO TODO PERMANECE IGUAL ATÉ AQUI) -->
+
+<hr class="divider"/>
+
+<!-- QUALIDADES -->
+<section id="qualidades">
+  <div class="section-wrap">
+    <p class="section-label">05 — Soft Skills</p>
+    <h2 class="section-title">Minhas Qualidades</h2>
+    <div class="qual-grid">
+      <div class="qual-card reveal">
+        <div class="qual-num">01</div>
+        <div>
+          <div class="qual-label">Proatividade</div>
+          <div class="qual-body">Busco soluções antes que os problemas se tornem maiores, com foco em resultados e eficiência.</div>
+        </div>
+      </div>
+      <div class="qual-card reveal" style="transition-delay:.1s">
+        <div class="qual-num">02</div>
+        <div>
+          <div class="qual-label">Trabalho em Equipe</div>
+          <div class="qual-body">Colaboração e comunicação clara para entregar o melhor resultado coletivo.</div>
+        </div>
+      </div>
+      <div class="qual-card reveal" style="transition-delay:.2s">
+        <div class="qual-num">03</div>
+        <div>
+          <div class="qual-label">Aprendizado Ágil</div>
+          <div class="qual-body">Capacidade de absorver novas tecnologias com rapidez e criatividade.</div>
+        </div>
+      </div>
+      <div class="qual-card reveal" style="transition-delay:.3s">
+        <div class="qual-num">04</div>
+        <div>
+          <div class="qual-label">Organização</div>
+          <div class="qual-body">Compromisso com prazos, planejamento e entrega consistente de qualidade.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<hr class="divider"/>
+   </div>
+  </div>
+</section>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-wrap">
+    <div class="contato-inner">
+      <p class="section-label" style="justify-content:center">06 — Contato</p>
+      <h2 class="section-title" style="text-align:center;margin-bottom:1rem">Vamos construir algo<br>incrível juntos?</h2>
+      <p class="contato-desc">Aberta a oportunidades, colaborações e novos desafios. Entre em contato!</p>
+      <div class="contato-btns reveal">
+        <a href="mailto:seuemail@gmail.com" class="btn-email">📩 E-mail</a>
+        <a href="#" class="btn-wa">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <span>Evelly Costa</span> — Desenvolvido com 💜
+</footer>
+
+<div id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script src="script.js"></script>
+</body>
+</html>
