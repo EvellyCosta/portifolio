@@ -149,7 +149,7 @@ nav.compact { padding: .65rem 4rem; }
 #theme-btn {
   width: 46px; height: 26px; background: var(--surface2);
   border: 1.5px solid var(--border); border-radius: 99px;
-  position: relative; cursor: none; flex-shrink: 0;
+  position: relative; cursor: pointer; flex-shrink: 0;
   transition: background .35s, border-color .35s;
 }
 #theme-btn::after {
@@ -201,7 +201,7 @@ html.light #theme-btn .icon-sun  { opacity: 1; }
   padding: .85rem 2rem; background: var(--accent2); color: #fff; border: none;
   font-family: 'Syne', sans-serif; font-size: .85rem;
   font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  text-decoration: none; border-radius: 3px; cursor: none;
+  text-decoration: none; border-radius: 3px; cursor: pointer;
   transition: box-shadow .3s, transform .2s;
 }
 .btn-primary:hover { box-shadow: 0 0 28px rgba(127,90,240,.5); transform: translateY(-2px); }
@@ -210,7 +210,7 @@ html.light #theme-btn .icon-sun  { opacity: 1; }
   color: var(--muted); background: transparent;
   font-family: 'Syne', sans-serif; font-size: .85rem;
   font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  text-decoration: none; border-radius: 3px; cursor: none;
+  text-decoration: none; border-radius: 3px; cursor: pointer;
   transition: border-color .3s, color .3s;
 }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
@@ -259,21 +259,54 @@ section { position: relative; z-index: 1; }
 }
  
 /* SOBRE */
-.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.sobre-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem 3rem;
+  align-items: center;
+}
 .sobre-text p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
 .sobre-text p + p { margin-top: 1rem; }
 .sobre-text strong { color: var(--text); }
-.sobre-stats { display: flex; flex-direction: column; gap: 1.2rem; }
-.stat-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 6px; padding: 1.3rem 1.5rem;
-  display: flex; gap: 1rem; align-items: center;
-  transition: border-color .3s, transform .3s;
+
+/* FOTO ORNAMENTAL */
+.sobre-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.stat-card:hover { border-color: var(--accent2); transform: translateX(6px); }
-.stat-icon { font-size: 1.5rem; }
-.stat-label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
-.stat-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); margin-top: .2rem; }
+.foto-frame-ornamental {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 18px rgba(184,146,255,.35));
+}
+.ornament-svg {
+  position: absolute;
+  inset: -38px;
+  width: calc(100% + 76px);
+  height: calc(100% + 76px);
+  pointer-events: none;
+  z-index: 2;
+}
+.foto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .sobre-grid { grid-template-columns: 1fr; }
+  .foto-frame-ornamental { width: 180px; height: 230px; }
+}
  
 /* CONQUISTAS */
 .conquistas-wrapper { position: relative; overflow: hidden; }
@@ -435,7 +468,7 @@ html.light .conquista-card { background: rgba(255,255,255,0.7); }
   color: var(--accent3); opacity: .8;
 }
  
-/* ===================== INTENSE ELEGANCE — redesign ===================== */
+/* ===================== INTENSE ELEGANCE ===================== */
 .projeto-preview--intense {
   background:
     radial-gradient(ellipse at 30% 60%, rgba(180,120,80,.18) 0%, transparent 60%),
@@ -500,7 +533,7 @@ html.light .conquista-card { background: rgba(255,255,255,0.7); }
   text-shadow: 0 1px 6px rgba(0,0,0,.4);
 }
  
-/* ===================== ROBÔ V6 — redesign ===================== */
+/* ===================== ROBÔ V6 ===================== */
 .projeto-preview--robo {
   background: linear-gradient(135deg, #090e12 0%, #0d1520 50%, #0a1208 100%);
   position: relative;
@@ -510,12 +543,10 @@ html.light .conquista-card { background: rgba(255,255,255,0.7); }
   position: relative; width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
 }
-/* SVG pista */
 .robo-track-svg {
   position: absolute;
   opacity: .85;
 }
-/* Robô — posicionado sobre a pista */
 .robo-car {
   position: relative; z-index: 3;
   display: flex; align-items: center;
@@ -588,7 +619,6 @@ html.light .conquista-card { background: rgba(255,255,255,0.7); }
   0%,100% { opacity: .3; }
   50%      { opacity: 1; background: #2cb67d; box-shadow: 0 0 8px #2cb67d; }
 }
-/* Rodas laterais */
 .robo-wheels-side {
   display: flex; flex-direction: column; gap: 6px;
   position: absolute;
@@ -701,7 +731,7 @@ html.light .conquista-card { background: rgba(255,255,255,0.7); }
   padding: 1rem 2.5rem; background: var(--accent2); color: #fff; border: none;
   font-family: 'Syne', sans-serif; font-size: .9rem;
   font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  text-decoration: none; border-radius: 3px; cursor: none;
+  text-decoration: none; border-radius: 3px; cursor: pointer;
   transition: box-shadow .3s, transform .2s;
 }
 .btn-email:hover { box-shadow: 0 0 28px rgba(127,90,240,.5); transform: translateY(-2px); }
@@ -710,7 +740,7 @@ html.light .conquista-card { background: rgba(255,255,255,0.7); }
   color: var(--accent3); border: 1.5px solid var(--accent3);
   font-family: 'Syne', sans-serif; font-size: .9rem;
   font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  text-decoration: none; border-radius: 3px; cursor: none;
+  text-decoration: none; border-radius: 3px; cursor: pointer;
   transition: background .3s, color .3s;
 }
 .btn-wa:hover { background: var(--accent3); color: #fff; }
@@ -728,7 +758,7 @@ footer span { color: var(--accent); }
   width: 44px; height: 44px; background: var(--surface);
   border: 1px solid var(--border); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: .9rem; cursor: none; z-index: 200;
+  color: var(--accent); font-size: .9rem; cursor: pointer; z-index: 200;
   opacity: 0; pointer-events: none;
   transition: opacity .3s, border-color .3s, transform .3s;
 }
@@ -766,4 +796,3 @@ footer span { color: var(--accent); }
 @media (max-width: 560px) {
   .skills-grid { grid-template-columns: 1fr; }
 }
- 
